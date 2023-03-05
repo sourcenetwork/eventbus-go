@@ -44,9 +44,3 @@ var _ Channel[int] = (*simpleChannel[int])(nil)
 func New[T any](subscriberBufferSize int, eventBufferSize int) Channel[T] {
 	return NewSimpleChannel[T](subscriberBufferSize, eventBufferSize)
 }
-
-// Events hold the supported event types
-type Events struct {
-	// Updates publishes an `Update` for each document written to in the database.
-	Updates UpdateChannel
-}
