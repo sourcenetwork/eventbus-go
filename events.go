@@ -11,7 +11,7 @@
 /*
 Package events provides the internal event system.
 */
-package events
+package eventbus
 
 type Subscription[T any] chan T
 
