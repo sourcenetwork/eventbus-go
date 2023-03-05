@@ -11,9 +11,9 @@
 package events
 
 import (
-	"github.com/sourcenetwork/defradb/errors"
+	"fmt"
 )
 
 var (
-	ErrSubscribedToClosedChan = errors.New("cannot subscribe to a closed channel")
+	ErrSubscribedToClosedChan = fmt.Errorf("cannot subscribe to a closed channel")
 )
