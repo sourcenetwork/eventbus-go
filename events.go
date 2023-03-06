@@ -35,8 +35,6 @@ type Channel[T any] interface {
 	Close()
 }
 
-var _ Channel[int] = (*simpleChannel[int])(nil)
-
 // New creates and returns a new Channel instance.
 //
 // At the moment this will always return a new simpleChannel, however that may change in

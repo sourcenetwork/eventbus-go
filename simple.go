@@ -10,6 +10,9 @@
 
 package eventbus
 
+// compile time check
+var _ Channel[int] = (*simpleChannel[int])(nil)
+
 type simpleChannel[T any] struct {
 	subscribers         []chan T
 	subscriptionChannel chan chan T
