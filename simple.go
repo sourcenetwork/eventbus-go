@@ -61,7 +61,9 @@ func (c *simpleChannel[T]) Unsubscribe(ch Subscription[T]) {
 }
 
 func (c *simpleChannel[T]) Publish(item T) {
+	log.Debugf("publishing item %T", item)
 	if c.isClosed {
+		log.Warnf("channel is closed for item %T", item)
 		return
 	}
 	c.eventChannel <- item
@@ -112,6 +114,7 @@ func (c *simpleChannel[T]) handleChannel() {
 			c.subscribers = append(c.subscribers, newSubscriber)
 
 		case item := <-c.eventChannel:
+			log.Debugf("sending published event %T to subscribers (%d)", item, len(c.subscribers))
 			for _, subscriber := range c.subscribers {
 				subscriber <- item
 			}

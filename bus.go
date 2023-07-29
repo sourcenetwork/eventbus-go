@@ -11,13 +11,8 @@ var (
 )
 
 type Bus interface {
-	untypedChannelStore
-}
-
-type untypedChannelStore interface {
 	Get(string) (any, bool)
 	Set(string, any) error
-	// Delete(string)
 }
 
 type simpleBus struct {

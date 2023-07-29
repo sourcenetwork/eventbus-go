@@ -13,6 +13,10 @@ Package events provides the internal event system.
 */
 package eventbus
 
+import logging "github.com/ipfs/go-log"
+
+var log = logging.Logger("eventbus")
+
 type Subscription[T any] chan T
 
 // Channel represents a subscribable type that will expose inputted items to subscribers.
